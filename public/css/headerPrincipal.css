@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  font-family: Rubik, sans-serif;
+  padding-top: 80px; /* Añade un padding top para compensar la altura del header */
+}
+
+header {
+  background-color: #081C2B;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; /* Hace que el header se fije en la parte superior */
+  top: 0; /* Coloca el header en la parte superior */
+  width: 100%; /* Establece el ancho al 100% */
+  z-index: 1000; /* Asegura que el header esté por encima de otros elementos */
+}
+  
+  .logo {
+    display: flex;
+    
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    width: auto;
+    border-radius: 50%;
+    margin-bottom: 5px; /* Añade un margen inferior para separar la imagen del título */
+}
+
+.logo span {
+    color: white;
+    font-size: 20px;
+}
+
+.user-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px; /* Añade un margen superior para separar el contenedor del título */
+}
+
+.user-container i {
+    margin-right: 6px; /* Añade un margen derecho entre el icono y el nombre del usuario */
+    color: white;
+}
+
+.user-name {
+    font-size: 25px;
+    color: #008CBA;
+    text-align: center;
+}
+  
+  
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    position: relative; /* Añadido para el posicionamiento absoluto de la lista de subcategorías */
+    margin-right: 15px; /* Reduce el espacio entre los elementos de la lista */
+  }
+  
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+  
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px; /* Ajusta el padding para hacer los enlaces más grandes */
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    border-radius: 20px;
+  }
+  
+  nav ul li a:hover {
+    background-color: #008CBA;
+    border-radius: 20px;
+  }
+  
+  nav ul li a i {
+    margin-right: 5px;
+    
+  }
+  
+  /* Estilos específicos para el enlace de Géneros */
+  .genres-link .subgenres {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #081C2B;
+    padding: 10px;
+    border-radius: 30px;
+    max-height: 200px; /* Ajusta la altura máxima según tus necesidades */
+    overflow-y: auto; /* Permite el desplazamiento vertical si el contenido excede la altura máxima */
+    z-index: 1;
+}
+
+.genres-link .subgenres li {
+    margin-bottom: 5px;
+}
+  .genres-link:hover .subgenres {
+    display: block; /* Muestra la lista de subcategorías al pasar el mouse sobre el enlace de Géneros */
+    background-color: #081C2B;
+    z-index: 1;
+   
+  }
+  
+  
+  .genres-link .subgenres li a {
+    color: white;
+    text-decoration: none;
+   
+  }
+  /* Estilos para la barra de desplazamiento */
+.genres-link .subgenres::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra de desplazamiento */
+  background-color: #081C2B; /* Color de fondo de la barra de desplazamiento */
+}
+
+.genres-link .subgenres::-webkit-scrollbar-thumb {
+  background-color: #008CBA; /* Color del pulgar de la barra de desplazamiento */
+  border-radius: 10px; /* Bordes redondeados para el pulgar */
+}
+
+.genres-link .subgenres::-webkit-scrollbar-thumb:hover {
+  background-color: #005F7D; /* Color del pulgar al pasar el mouse */
+}
+  
+ /* Estilos específicos para el enlace de Perfil y sublista */
+ header .sub-profile {
+  display: none; /* Oculta la lista de subcategorías de perfil por defecto */
+  position: absolute; /* Posiciona la lista de subcategorías */
+  top: calc(100% + 5px); /* Alinea la lista de subcategorías debajo del enlace de Perfil */
+  right: 0;
+  background-color: #081C2B; /* Color de fondo para la lista de subcategorías */
+  padding: 10px;
+  border-radius: 20px; /* Agrega esquinas redondeadas */
+  z-index: 1; /* Asegura que la lista aparezca sobre otros elementos */
+}
+
+header .nav-link:hover + .sub-profile,
+header .sub-profile:hover {
+  display: block; /* Muestra la lista de subcategorías al pasar el mouse sobre el enlace de Perfil o la sublista */
+}
+
+header .sub-profile li {
+  margin: 5px 0;
+}
+
+header .sub-profile a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+header .sub-profile a:hover {
+  background-color: #008cba;
+}
+

@@ -1,0 +1,90 @@
+body{
+    background-color: #081C2B;
+    font-family: Rubik, sans-serif;
+
+}   
+
+.autor{
+    color: #081C2B; 
+}
+
+.main-container {
+    background-color: #0F2E47;
+    padding: 20px;
+    margin: 70px;
+    text-align: center;
+    border-radius: 70px;
+}
+
+.second-container {
+    background-color: #0F2E47;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 100px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Añadimos este estilo para centrar el contenido horizontalmente */
+}
+
+.info-container {
+    background-color: #0F2E47;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+    margin-left: 20px; /* Añadimos un margen izquierdo para separar la información de la imagen */
+}
+
+.info-container p.message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #081C2B;
+    text-align: center;
+    padding: 15px;
+    border: 1px solid #081C2B;
+    border-radius: 5px;
+    background-color: #008CBA;
+}
+
+.info-container img {
+    max-width: 200px;
+    margin-right: 20px;
+}
+
+img{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: auto;
+    height: 280px; /* Altura fija para todas las imágenes */
+}
+
+.download-link {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 20px;
+    margin-top: 10px; /* Añadimos un margen superior para separar el botón de la información */
+}
+
+.download-link:hover {
+    background-color: #081C2B;
+}
+
+.buy-button {
+    background-color: #008CBA;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 20px;
+    margin-top: 10px; /* Añadimos un margen superior para separar el botón de la información */
+}
+
+.buy-button:hover {
+    background-color: #081C2B;
+}

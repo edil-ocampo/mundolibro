@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
+
+use App\Models\Download;
 
 class User extends Authenticatable
 {
@@ -20,7 +23,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
+
+    protected $primaryKey = 'id';
+    protected $rememberTokenName = null;
+    public $timestamps = false;
+
+    public function downloads()
+    {
+        return $this->hasMany(Download::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.
