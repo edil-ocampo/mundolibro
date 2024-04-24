@@ -35,6 +35,7 @@ public function librosDescargados($bookId)
 
     // Registrar la descarga en la base de datos
     $download = new Download();
+    
     // Obtener el ID del usuario autenticado
     $download->user_id = Auth::id(); 
     $download->book_id = $book->id;

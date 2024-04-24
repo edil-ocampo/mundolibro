@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{asset('/css/subirLibro.css')}}">
 
 @section('content')
-<h4>lo</h4>
+
 @if (session('success'))
 <div class="alert alert-success">
   {{ session('success') }}

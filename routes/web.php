@@ -35,7 +35,7 @@ Route::get('/libro/{id}', [BookController::class,'show'])->name('libro.show');
 //Ver libros descargados
 Route::get('/librosdescargados/{book}', [DownloadController::class, 'librosDescargados'])->name('libros.descargados');
 Route::get('/downloads', [DownloadController::class, 'showLibrosDescargados'])->name('show.librosdescargados');
-//Filtro por genero
+//Filtro por género
 Route::get('/libros/{genero}', [BookController::class,'filtrarPorGenero'])->name('libros.por.genero');
 //Libros gratis
 Route::get('/librosgratis', [BookController::class,'indexGratis'])->name('libros.gratis');

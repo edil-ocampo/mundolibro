@@ -18,6 +18,7 @@ class BookController extends Controller
         return view('index', compact('libros'));
     }
 
+
     public function filtrarPorGenero($genero)
     {
         // Validar que el género proporcionado es válido
@@ -34,12 +35,13 @@ class BookController extends Controller
         // Filtrar libros por género
         $libros = Book::where('genre', $genero)->get();
 
-        // Retornar vista con los libros filtrados
+        
         return view('indexPorGenero', ['libros' => $libros, 'genero' => $genero]);
     }
 
     public function indexGratis()
     {   
+        //Se obtienen todos los libros y crea una variable para especificar los libros gratuitos 
         $libros = Book::all();
         $libroGratis = Book::where('price' , 0)->get();
 
@@ -48,6 +50,7 @@ class BookController extends Controller
 
     public function indexPaga()
     {   
+        //Se obtienen todos los libros y crea una variable para especificar los libros de paga 
         $libros = Book::all();
         $libroPaga = Book::where('price' , !0)->get();
 
@@ -55,10 +58,11 @@ class BookController extends Controller
     }
 
     public function show($id)
-{
-    $libro = Book::findOrFail($id); // Obtener el libro por su ID
-    return view('verLibro', compact('libro'));
-}
+    {
+        // Obtener el libro por su ID
+        $libro = Book::findOrFail($id); 
+        return view('verLibro', compact('libro'));
+    }
 
 
     public function create()
@@ -68,17 +72,7 @@ class BookController extends Controller
 
     public function store(CreateBookRequest $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'author' => 'required',
-            'publication_year' => 'required',
-            'genre' => 'required',
-            'price' => 'required',
-            'synopsis' => 'required',
-            'image' => 'required',
-            'url' => 'required',
-        ]);
-
+        //logica para el registro y ruta de la imagen
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('img/libros/'), $imageName);

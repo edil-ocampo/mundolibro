@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{asset('/css/inicioSesion.css')}}">
 
 @section('content')
-   <h4>olo</h4>
+   
 @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}

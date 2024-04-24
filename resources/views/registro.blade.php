@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{asset('/css/registro.css')}}">
 
 @section('content')
-<h4>lo</h4>
+
 <div class="container">
     <div class="form-container">
         <h1>REGISTRO</h1>

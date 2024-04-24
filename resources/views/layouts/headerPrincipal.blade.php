@@ -71,7 +71,7 @@
               <li><a href="#" class="sub-profile-link">Libros comprados</a></li> 
               <li><a href="{{route('registro.admin')}}" class="sub-profile-link">Crear Administrador</a></li> 
             @elseif(Auth::user()->role == 'User')
-              <li><a href="{{route ('show.librosdescargados')}}" class="sub-profile-link">Mis libros</a></li>
+              <li><a href="{{route('show.librosdescargados')}}" class="sub-profile-link">Mis libros</a></li>
             @endif
             <li><a href="{{route('logout')}}" class="sub-profile-link">Cerrar sesión</a></li>
             @endauth

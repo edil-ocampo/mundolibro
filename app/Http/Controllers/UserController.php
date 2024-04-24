@@ -23,21 +23,21 @@ class UserController extends Controller
     public function store(CreateUserRequest $request)
     {
             
-            $usuario = new User;
+        $usuario = new User;
 
-            $usuario->name = $request->input('name');
-            $usuario->email = $request->input('email');
-            $usuario->password = bcrypt($request->input('password')); 
-            $usuario->role = $request->input('role');
+        $usuario->name = $request->input('name');
+        $usuario->email = $request->input('email');
+        $usuario->password = bcrypt($request->input('password')); 
+        $usuario->role = $request->input('role');
 
-            
-            $usuario->save();
+        
+        $usuario->save();
 
-            return redirect()->route('login')->with('success', 'Usuario registrado exitosamente. Adelante, inicia sesión');
+        return redirect()->route('login')->with('success', 'Usuario registrado exitosamente. Adelante, inicia sesión');
         
     }
 
-    //crear Administrador
+    
     public function createAdmin()
     {   
         
@@ -47,17 +47,17 @@ class UserController extends Controller
     public function storeAdmin(CreateUserRequest $request)
     {
             
-            $usuario = new User;
+        $usuario = new User;
 
-            $usuario->name = $request->input('name');
-            $usuario->email = $request->input('email');
-            $usuario->password = bcrypt($request->input('password')); 
-            $usuario->role = $request->input('role');
+        $usuario->name = $request->input('name');
+        $usuario->email = $request->input('email');
+        $usuario->password = bcrypt($request->input('password')); 
+        $usuario->role = $request->input('role');
 
-            
-            $usuario->save();
+        
+        $usuario->save();
 
-            return redirect()->route('registro.admin')->with('success', 'Administrador creado correctamente');
+        return redirect()->route('registro.admin')->with('success', 'Administrador creado correctamente');
         
     }
 
@@ -71,7 +71,7 @@ class UserController extends Controller
       
     public function storeLogin(Request $request)
     {
-        
+        //se valida que los datos almacenados sean veridicos con los digitados
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password], true))
         {
             return redirect()->intended('/');
@@ -84,7 +84,7 @@ class UserController extends Controller
           
     }
 
-     // funcion para salir de la sesión
+     
      public function logout(Request $request)
      {
          Auth::guard('web')->logout();

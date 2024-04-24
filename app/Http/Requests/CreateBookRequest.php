@@ -44,7 +44,6 @@ class CreateBookRequest extends FormRequest
             'author.string' => 'El nombre del autor debe ser texto.',
             'publication_year.required' => 'El año de publicacion es requerido.',
             'publication_year.int' => 'El año de publicacion debe ser un numero entero.',
-            // 'publication_year.max' => 'El año de publicacion debe tener máximo cuatro numeros.',
             'genre.required' => 'El género es obligatorio.',
             'price.required' => 'El precio es obligatorio.',
             'price.numeric' => 'El precio debe ser un número.',

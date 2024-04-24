@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{asset('/css/index.css')}}">
     
 @section('content')
-{{-- <div class="books-container-wrapper"> --}}
+
     <div class="title-container">
         <h1>Libros descargados</h1>
     </div>
@@ -23,6 +23,6 @@
             @endforeach
         @endif
     </div>
-{{-- </div> --}}
+
 
 @endsection
