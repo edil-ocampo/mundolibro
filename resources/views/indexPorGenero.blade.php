@@ -1,6 +1,6 @@
-@extends('layouts.headerPrincipal') <!-- Asume que estás utilizando una plantilla maestra llamada 'header' -->
+@extends('layouts.headerPrincipal') 
 
-@section('title', 'Libros - ' . $genero)
+@section('title', 'MUNDO LIBRO | Libros de - ' . $genero)
 
 @section('style')
 <link rel="stylesheet" href="{{asset('/css/index.css')}}">

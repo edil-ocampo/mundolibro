@@ -51,7 +51,12 @@
               <li><a href="{{ route('libros.por.genero', 'Filosofía') }}" class="subgenre-link">Filosofía</a></li>
             </ul>
           </li>
-        <li><a href="#" class="nav-link" data-target="buscar"><i class="fas fa-search"></i> Buscar</a></li>
+          <li><a href="#" class="nav-link" data-target="perfil">Tipo</a>
+            <ul class="sub-profile">
+              <li><a href="{{route ('libros.gratis')}}" class="sub-profile-link">Gratis</a></li>
+              <li><a href="{{route ('libros.pago')}}" class="sub-profile-link">De paga</a></li>
+            </ul>
+
         @guest 
         <li><a  href="{{route('registro')}}" class="nav-link" data-target="registrarse">Registrarse</a></li>
         <li><a href="{{route('login')}}" class="nav-link" data-target="iniciar-sesion">Iniciar Sesión</a></li>
@@ -64,6 +69,7 @@
               <ul class="sub-profile">
             @if (Auth::user()->role == 'Admin')
               <li><a href="#" class="sub-profile-link">Libros comprados</a></li> 
+              <li><a href="{{route('registro.admin')}}" class="sub-profile-link">Crear Administrador</a></li> 
             @elseif(Auth::user()->role == 'User')
               <li><a href="{{route ('show.librosdescargados')}}" class="sub-profile-link">Mis libros</a></li>
             @endif

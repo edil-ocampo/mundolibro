@@ -4,31 +4,40 @@ use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DownloadController;
+use App\Http\Controllers\WebhooksController;
+use App\Models\Transaction;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; 
 
 
-
-//Vista index principal
-Route::view('/','index')->name('index.principal');
-//Rutas de registro
-Route::get('/Registro', [UserController::class, 'create'])->name('registro');
-Route::post('/Registroexitoso', [UserController::class, 'store'])->name('usuarios.store');
-//Rutas de iniciar sesión
-Route::get('/Login', [UserController::class, 'login'])->name('login');
-Route::post('/Loginexitoso', [UserController::class, 'storeLogin'])->name('login.store');
-//Rutas de cerrar sesión
-Route::get('CerrarSesión', [UserController::class, 'logout'])->name('logout');
+//Vista raíz 
+Route::get('/',[BookController::class, 'index'])->name('index.principal');
+//Registro usuario
+Route::get('/registro', [UserController::class, 'create'])->name('registro');
+Route::post('/registroexitoso', [UserController::class, 'store'])->name('usuarios.store');
+//Registro Admin
+Route::get('/registroadmin', [UserController::class, 'createAdmin'])->name('registro.admin');
+Route::post('/registradminoexitoso', [UserController::class, 'storeAdmin'])->name('admin.store');
+//Iniciar sesión
+Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::post('/loginexitoso', [UserController::class, 'storeLogin'])->name('login.store');
+//Cerrar sesión
+Route::get('cerrarsesión', [UserController::class, 'logout'])->name('logout');
 //Middleware
-Route::group(['middleware' => 'redirecionTipoUsuario'], function(){
+Route::group(['middleware' => 'redirecionTipoUsuario'], function() {
 
 });
-//Rutas de subir libro
-Route::get('/Subirlibro', [BookController::class, 'create'])->name('subirlibro');
-Route::post('/Subirlibroexitoso', [BookController::class, 'store'])->name('libro.store');
-//Rutas para ver el libro
+//Para  subir un libro
+Route::get('/subirlibro', [BookController::class, 'create'])->name('subirlibro');
+Route::post('/subirlibroexitoso', [BookController::class, 'store'])->name('libro.store');
+//Para ver el libro clikeado
 Route::get('/libro/{id}', [BookController::class,'show'])->name('libro.show');
-//Rutas para ver libros descargados
-Route::get('/libros-descargados/{book}', [DownloadController::class, 'librosDescargados'])->name('libros.descargados');
+//Ver libros descargados
+Route::get('/librosdescargados/{book}', [DownloadController::class, 'librosDescargados'])->name('libros.descargados');
 Route::get('/downloads', [DownloadController::class, 'showLibrosDescargados'])->name('show.librosdescargados');
-//FILTRO POR GENERO
-
+//Filtro por genero
 Route::get('/libros/{genero}', [BookController::class,'filtrarPorGenero'])->name('libros.por.genero');
+//Libros gratis
+Route::get('/librosgratis', [BookController::class,'indexGratis'])->name('libros.gratis');
+//Libros de paga
+Route::get('/librosdepaga', [BookController::class,'indexPaga'])->name('libros.pago');

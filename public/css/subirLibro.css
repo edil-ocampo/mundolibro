@@ -1,10 +1,12 @@
 body{
+    margin: 0;
+    padding-top: 80px;
     background-color: #081C2B;
     font-family: Rubik, sans-serif;
 }
 
 h1{
-    color: #0F2E47;
+  color: #008CBA;
     font-family: Rubik, sans-serif;
 }
 .container {
@@ -20,11 +22,11 @@ h1{
   .form-container {
     flex: 1;
     padding: 40px;
-    background-color:#081C2B;
+    background-color: #081C2B;
     backdrop-filter: blur(10px);
     border-radius: 8px 0 0 8px;
-  }
-  
+    
+}
   
   
   .input-group {
@@ -39,8 +41,8 @@ h1{
     border-bottom: 1px solid white;
     font-size: 16px;
     background-color: transparent;
-    outline: none; /* Elimina el contorno predeterminado */
-    box-shadow: none; /* Elimina la sombra predeterminada */
+    outline: none; 
+    box-shadow: none; 
     color: white;
   }
   select {
@@ -50,8 +52,8 @@ h1{
     border-bottom: 1px solid white;
     font-size: 16px;
     background-color: transparent;
-    outline: none; /* Elimina el contorno predeterminado */
-    box-shadow: none; /* Elimina la sombra predeterminada */
+    outline: none; 
+    box-shadow: none; 
     color: white;
     font-family: Rubik, sans-serif;
   }
@@ -74,7 +76,7 @@ h1{
 }
 
 textarea#synopsis:focus {
-    border-bottom: 2px solid #0F2E47; /* Cambia el estilo de la línea inferior cuando se enfoca */
+    border-bottom: 2px solid #0F2E47; 
 }
 
 textarea#synopsis:focus + label,
@@ -97,7 +99,7 @@ textarea#synopsis:not(:placeholder-shown) + label {
   }
 
   input:focus {
-    border-bottom: 2px solid #0F2E47; /* Cambia el estilo de la línea inferior cuando se enfoca */
+    border-bottom: 2px solid #0F2E47; 
   }
 
   label {
@@ -132,4 +134,10 @@ textarea#synopsis:not(:placeholder-shown) + label {
   
   button:hover {
     background-color: #0F2E47;
+  }
+
+  .error-message {
+    display: block; 
+    font-size: 0.9em; 
+    color: #008CBA;
   }

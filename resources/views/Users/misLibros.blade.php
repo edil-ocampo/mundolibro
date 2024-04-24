@@ -1,5 +1,5 @@
 @extends('layouts.headerPrincipal')
-@section('title','MUNDO LIBRO | EL LUGAR IDEAL PARA BUSCAR LIBROS')
+@section('title','MUNDO LIBRO - Mis libros')
     
 @section('style')
 <link rel="stylesheet" href="{{asset('/css/index.css')}}">

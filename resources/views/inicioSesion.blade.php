@@ -1,11 +1,11 @@
 @extends('layouts.headerPrincipal')
-@section('title','MUNDO LIBRO | INCIA SESIÓN')
+@section('title','MUNDO LIBRO - Inicio de sesión')
   
 @section('style')
 <link rel="stylesheet" href="{{asset('/css/inicioSesion.css')}}">
 
 @section('content')
-   
+   <h4>olo</h4>
 @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}

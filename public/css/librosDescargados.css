@@ -8,9 +8,8 @@ body{
 
 
 .book-card {
-    width: calc(15% - 20px); /* Ancho de la tarjeta, la mitad del espacio disponible menos los márgenes */
-    max-width: calc(15% - 20px); /* Ancho máximo de la tarjeta para que haya 3 tarjetas por fila */
-    margin: 10px;
+    width: calc(15% - 20px); 
+    max-width: calc(15% - 20px); 
     border: 1px solid #0F2E47;
     border-radius: 5px;
     
@@ -18,13 +17,13 @@ body{
     color:  white;
     display: flex;
     flex-direction: row;
-    position: relative; /* Para poder posicionar el precio de forma absoluta */
+    position: relative;
 }
 
 .book-card img {
     width: 100%;
-    height: 280px; /* Altura fija para todas las imágenes */
-    object-fit: cover; /* Ajustar la imagen manteniendo la proporción y cubriendo el contenedor */
+    height: 280px;
+    object-fit: cover; 
     border-radius: 5px;
     margin-bottom: 10px;
 

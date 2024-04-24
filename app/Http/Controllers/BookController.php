@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateBookRequest;
 use App\Models\Book;
 use App\Models\Download;
 use App\Models\User;
@@ -14,7 +15,7 @@ class BookController extends Controller
     public function index()
     {
         $libros = Book::all();
-        return to_route('/', compact('libros'));
+        return view('index', compact('libros'));
     }
 
     public function filtrarPorGenero($genero)
@@ -37,6 +38,22 @@ class BookController extends Controller
         return view('indexPorGenero', ['libros' => $libros, 'genero' => $genero]);
     }
 
+    public function indexGratis()
+    {   
+        $libros = Book::all();
+        $libroGratis = Book::where('price' , 0)->get();
+
+        return view('librosGratis', compact('libroGratis', 'libros'));
+    }
+
+    public function indexPaga()
+    {   
+        $libros = Book::all();
+        $libroPaga = Book::where('price' , !0)->get();
+
+        return view('librosPaga', compact('libroPaga','libros'));
+    }
+
     public function show($id)
 {
     $libro = Book::findOrFail($id); // Obtener el libro por su ID
@@ -49,7 +66,7 @@ class BookController extends Controller
         return view('Admin.subirLibro');
     }
 
-    public function store(Request $request)
+    public function store(CreateBookRequest $request)
     {
         $request->validate([
             'name' => 'required',

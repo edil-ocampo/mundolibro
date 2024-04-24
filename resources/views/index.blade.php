@@ -1,15 +1,18 @@
-@php
-use App\Models\Book;
-use App\Http\Controllers\BookController;
-$libros = Book::all();
-@endphp
+
 @extends('layouts.headerPrincipal')
-@section('title','MUNDO LIBRO | EL LUGAR IDEAL PARA BUSCAR LIBROS')
+@section('title','MUNDO LIBRO | Tu sitio para descargar libros')
     
 @section('style')
 <link rel="stylesheet" href="{{asset('/css/index.css')}}">
+@endsection
 @section('content')
-    
+<br>
+
+@if (session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
 <div class="books-container">
     @foreach ($libros as $libro)
         <div class="book-card">

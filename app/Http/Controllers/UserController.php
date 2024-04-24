@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateUserRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rules;
@@ -19,34 +20,47 @@ class UserController extends Controller
         return view('registro');
     }
 
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
-        $request->validate([
             
-            'name' => 'required',
-            'email' => 'required',
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'role' => 'required',
-        
-        ]);
-
-         // Crear una nueva instancia de usuario
             $usuario = new User;
 
-            // Asignar los valores
-           
             $usuario->name = $request->input('name');
             $usuario->email = $request->input('email');
             $usuario->password = bcrypt($request->input('password')); 
             $usuario->role = $request->input('role');
 
-            // Guardar el usuario
+            
             $usuario->save();
 
-            // Redirigir a la ruta de inicio de sesión con un mensaje de éxito
-            return redirect()->route('login')->with('success', 'Usuario Registrado Exitosamente');
+            return redirect()->route('login')->with('success', 'Usuario registrado exitosamente. Adelante, inicia sesión');
         
     }
+
+    //crear Administrador
+    public function createAdmin()
+    {   
+        
+        return view('Admin.registroAdmin');
+    }
+
+    public function storeAdmin(CreateUserRequest $request)
+    {
+            
+            $usuario = new User;
+
+            $usuario->name = $request->input('name');
+            $usuario->email = $request->input('email');
+            $usuario->password = bcrypt($request->input('password')); 
+            $usuario->role = $request->input('role');
+
+            
+            $usuario->save();
+
+            return redirect()->route('registro.admin')->with('success', 'Administrador creado correctamente');
+        
+    }
+
 
     public function login(){
       
@@ -54,7 +68,7 @@ class UserController extends Controller
 
     }
 
-      // Validar Datos e Iniciar Sesion
+      
     public function storeLogin(Request $request)
     {
         
@@ -70,7 +84,7 @@ class UserController extends Controller
           
     }
 
-     // funcion para salir de la sesion
+     // funcion para salir de la sesión
      public function logout(Request $request)
      {
          Auth::guard('web')->logout();

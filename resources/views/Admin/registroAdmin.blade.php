@@ -1,18 +1,23 @@
 @extends('layouts.headerPrincipal')
-@section('title','MUNDO LIBRO - Registro')
+@section('title','MUNDO LIBRO - Registro de Administrador')
 
 @section('style')
 <link rel="stylesheet" href="{{asset('/css/registro.css')}}">
 
 @section('content')
 <h4>lo</h4>
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
 <div class="container">
     <div class="form-container">
-        <h1>REGISTRO</h1>
+        <h1>REGISTRO ADMIN</h1>
 
        
 
-        <form action="{{ route('usuarios.store') }}" method="POST">
+        <form action="{{ route('admin.store') }}" method="POST">
             @csrf
 
             <div class="input-group">
@@ -38,13 +43,13 @@
             </div>
             <div class="input-group">
                 <input type="password" name="password_confirmation" >
-                <label for="password_confirmation">Repita su contraseña</label>
+                <label for="password_confirmation">Repita la contraseña</label>
                 @error('password_confirmation')
                     <span class="error-message">{{ $message }}</span>
                 @enderror
             </div>
-            <input type="hidden" name="role" value="User">
-            <button type="submit">Registrarme</button>
+            <input type="hidden" name="role" value="Admin">
+            <button type="submit">Crear Administrador</button>
         </form>
     </div>
     <div class="image-container">
